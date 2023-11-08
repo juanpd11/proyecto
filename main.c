@@ -38,7 +38,7 @@ void Opcion2() {
     printf("Ingrese la cantidad de registro que desea procesar: ");
     scanf("%d", &cantidadDeRegistro);
     while (TRUE){
-    if (cantidadDeRegistro < 0) {
+    if (cantidadDeRegistro <= 0) {
             printf("Cantidad no válida. Ingrese un valor entero y positivo: ");
             while (getchar() != '\n'); 
         } else {
