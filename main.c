@@ -46,8 +46,8 @@ void Opcion2() {
         }
    }
     char tipoVehiculos[cantidadDeRegistro];
-    char nombrePropietarios[cantidadDeRegistro][50];
-    char numeroPlacas[cantidadDeRegistro][50];
+    char *nombrePropietarios[cantidadDeRegistro];
+    char *numeroPlacas[cantidadDeRegistro];
     int totalPagados[cantidadDeRegistro];
     
     int cantidadComercial = 0;
@@ -58,8 +58,8 @@ void Opcion2() {
     
     for(int k = 0; cantidadDeRegistro > k; k++) {
         char tipo;
-        char nombre[50];
-        char placa[50];
+        char* nombre;
+        char* placa;
         int total;
         
         while(TRUE) {
@@ -73,10 +73,10 @@ void Opcion2() {
         
         
         printf("nombre de propietario");
-        scanf(" %s", &nombre);
+        scanf(" %s", nombre);
         
         printf("numero de placa");
-        scanf(" %s", &placa);
+        scanf(" %s", placa);
         
         while(TRUE) {
             printf("pago total");
@@ -90,10 +90,7 @@ void Opcion2() {
     system("cls");
     printf("NOMBRE DEL PROPIETARIO          TIPO        DESCRIPCIÓN       NÚMERO DE PLACA       CANTIDAD PAGADA\n");
     for(int k = 0; cantidadDeRegistro > k; k++) {
-        char tipoVehiculos[cantidadDeRegistro];
-    char nombrePropietarios[cantidadDeRegistro][50];
-    char numeroPlacas[cantidadDeRegistro][50];
-    int totalPagados[cantidadDeRegistro];
+        printf("%c %s %s %i/n",  tipoVehiculos[k],  nombrePropietarios[k],  numeroPlacas[k], totalPagados[k]);
     }
 }
 int main() {
@@ -108,7 +105,7 @@ int main() {
                 presentacion();
                 break;
             case 2:
-                opcion2(); 
+                Opcion2(); 
                 break;
             case 3:
                 
@@ -120,7 +117,7 @@ int main() {
         
         if (opcion != 3) {
             printf("\nClick para volver al Menu principal :)");
-            getch(); 
+            getchar(); 
         }
         
         system("cls"); 
